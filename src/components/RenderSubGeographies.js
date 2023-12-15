@@ -40,6 +40,7 @@ function RenderSubGeographies({item, subGeographies, targetIndex, editId, setEdi
             )}
             <AddSubGeographyRow
                 data={data}
+                item={item}
                 expandedRows={expandedRows}
                 targetIndex={targetIndex}
             />

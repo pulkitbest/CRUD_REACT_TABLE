@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
-function AddSubGeographyRow({data, expandedRows, targetIndex}) {
+function AddSubGeographyRow({item, data, expandedRows, targetIndex}) {
 
     const handleAddSub = async (e, targetIndex) => {
         e.preventDefault()
@@ -21,7 +21,7 @@ function AddSubGeographyRow({data, expandedRows, targetIndex}) {
             sub_geographies: updatedSubGeographies
         };
         
-        await axios.put(`http://localhost:5000/data/${targetIndex + 1}`, updatedData[targetIndex], {
+        await axios.put(`http://localhost:5000/data/${item.id}`, updatedData[targetIndex], {
             headers: {
                 'Content-Type': 'application/json',
             }

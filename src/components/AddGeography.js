@@ -8,7 +8,7 @@ function AddGeography({data, expandedRows}) {
         e.preventDefault()
 
         axios.post('http://localhost:5000/data', {
-            id: (data.length + 1),
+            id: data[data.length - 1].id + 1,
             'Geography': 'New Geography', 
             'Product 1': Number(0), 
             'Product 2': Number(0), 
