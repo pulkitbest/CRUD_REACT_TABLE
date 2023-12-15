@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap';
 
-function EditSubGeographyRow({data, targetIndex, index, expandedRows, subgeography, setSubgeography, product1, setProduct1, product2, setProduct2, product3, setProduct3, subGeo}) {
+function EditSubGeographyRow({item, data, targetIndex, index, expandedRows, subgeography, setSubgeography, product1, setProduct1, product2, setProduct2, product3, setProduct3, subGeo}) {
     
     const calculateSubProductsTotal = (subGeographies, productKey) => {
         return subGeographies.reduce((total, subGeo) => total + subGeo[productKey], 0);
@@ -22,7 +22,7 @@ function EditSubGeographyRow({data, targetIndex, index, expandedRows, subgeograp
         updatedData[geoIndex]['Product 2'] = calculateSubProductsTotal(updatedData[geoIndex].sub_geographies, "Product 2")
         updatedData[geoIndex]['Product 3'] = calculateSubProductsTotal(updatedData[geoIndex].sub_geographies, "Product 3")
 
-        await axios.put(`http://localhost:5000/data/${geoIndex + 1}`, updatedData[geoIndex], {
+        await axios.put(`http://localhost:5000/data/${item.id}`, updatedData[geoIndex], {
             headers: {
                 'Content-Type': 'application/json',
             }

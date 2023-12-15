@@ -20,7 +20,7 @@ function GeographyRow({item, index, expandedRows, setExpandedRows, setEditId, se
     const handleGeoDelete = async (e, targetIndex) => {
         e.preventDefault()
         
-        await axios.delete(`http://localhost:5000/data/${targetIndex + 1}`).then(res => {
+        await axios.delete(`http://localhost:5000/data/${item.id}`).then(res => {
             const newExpandedRows = expandedRows.filter(element => element !== targetIndex)
             localStorage.setItem('expandedItems', JSON.stringify(newExpandedRows))
             window.location.reload()

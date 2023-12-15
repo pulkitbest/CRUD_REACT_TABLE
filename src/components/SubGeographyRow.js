@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-function SubGeographyRow({data, expandedRows, index, targetIndex, subGeo, setEditId, setSubgeography, setProduct1, setProduct2, setProduct3}) {
+function SubGeographyRow({item, data, expandedRows, index, targetIndex, subGeo, setEditId, setSubgeography, setProduct1, setProduct2, setProduct3}) {
     
     const handleSubDelete = async (e, geoIndex, subIndex) => {
         e.preventDefault()
@@ -10,7 +10,7 @@ function SubGeographyRow({data, expandedRows, index, targetIndex, subGeo, setEdi
         const updatedData = data
         updatedData[geoIndex].sub_geographies.splice(subIndex, 1)
 
-        await axios.put(`http://localhost:5000/data/${geoIndex + 1}`, updatedData[geoIndex], {
+        await axios.put(`http://localhost:5000/data/${item.id}`, updatedData[geoIndex], {
             headers: {
                 'Content-Type': 'application/json',
             }

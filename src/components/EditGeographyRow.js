@@ -25,7 +25,7 @@ function EditGeographyRow({data, geography, setGeography, expandedRows, setExpan
             Geography: geography
         }
 
-        await axios.put(`http://localhost:5000/data/${targetIndex + 1}`, updatedData[targetIndex], {
+        await axios.put(`http://localhost:5000/data/${item.id}`, updatedData[targetIndex], {
             headers: {
                 'Content-Type': 'application/json',
             }

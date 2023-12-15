@@ -67,6 +67,7 @@ function DataTable() {
                             }
                             {expandedRows.includes(index) && 
                                 <RenderSubGeographies
+                                    item={item}
                                     subGeographies={item.sub_geographies}
                                     targetIndex={index}
                                     editId={editId}

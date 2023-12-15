@@ -3,11 +3,12 @@ import SubGeographyRow from './SubGeographyRow';
 import EditSubGeographyRow from './EditSubGeographyRow';
 import AddSubGeographyRow from './AddSubGeographyRow';
 
-function RenderSubGeographies({subGeographies, targetIndex, editId, setEditId, data, expandedRows, subgeography, setSubgeography, product1, setProduct1, product2, setProduct2, product3, setProduct3}) {
+function RenderSubGeographies({item, subGeographies, targetIndex, editId, setEditId, data, expandedRows, subgeography, setSubgeography, product1, setProduct1, product2, setProduct2, product3, setProduct3}) {
     return (
         <>
             {subGeographies && subGeographies.map((subGeo, index) => <>
                 {((targetIndex + 1) * 10000) + index === editId ? <EditSubGeographyRow 
+                        item={item}
                         data={data}
                         targetIndex={targetIndex}
                         index={index}
@@ -22,6 +23,7 @@ function RenderSubGeographies({subGeographies, targetIndex, editId, setEditId, d
                         setProduct3={setProduct3}
                         subGeo={subGeo}
                     /> : <SubGeographyRow 
+                        item={item}
                         data={data}
                         expandedRows={expandedRows}
                         index={index}
